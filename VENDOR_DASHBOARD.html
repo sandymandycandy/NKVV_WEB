@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>VendorConnect Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f9fafb;
+    }
+
+    .container {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    aside {
+      width: 250px;
+      background: #fff;
+      border-right: 1px solid #e5e7eb;
+      padding: 24px;
+    }
+
+    aside h2 {
+      color: #0d9488;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    aside p {
+      font-size: 14px;
+      color: #6b7280;
+      margin-bottom: 32px;
+    }
+
+    nav a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      margin-bottom: 10px;
+      font-weight: 600;
+      text-decoration: none;
+      color: #374151;
+      border-radius: 6px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    nav a:hover {
+      background-color: #e0f2fe;
+      color: #2563eb;
+    }
+
+    nav a.active {
+      background-color: #2563eb;
+      color: #fff;
+    }
+
+    main {
+      flex: 1;
+      padding: 32px;
+    }
+
+    .top-cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-bottom: 32px;
+    }
+
+    .card {
+      background: #fff;
+      padding: 24px;
+      border-radius: 16px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #6b7280;
+      margin-bottom: 4px;
+    }
+
+    .card h3 {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .card .change {
+      font-size: 14px;
+      margin-top: 4px;
+    }
+
+    .green { color: #22c55e; }
+    .orange { color: #f97316; }
+    .blue { color: #3b82f6; }
+    .red { color: #ef4444; }
+
+    .top-selling ul {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .top-selling li {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+
+    .actions {
+      margin-bottom: 32px;
+    }
+
+    .actions h2 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .action-buttons {
+      display: flex;
+      gap: 16px;
+    }
+
+    .action-buttons button {
+      padding: 10px 16px;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .btn-green {
+      background-color: #22c55e;
+      color: #fff;
+    }
+
+    .btn-green:hover {
+      background-color: #16a34a;
+    }
+
+    .btn-outline-green {
+      border: 1px solid #22c55e;
+      color: #16a34a;
+      background: transparent;
+    }
+
+    .btn-outline-green:hover {
+      background-color: #dcfce7;
+    }
+
+    .btn-yellow {
+      background-color: #facc15;
+      color: #fff;
+    }
+
+    .btn-yellow:hover {
+      background-color: #eab308;
+    }
+
+    .orders, .low-stock {
+      margin-bottom: 32px;
+    }
+
+    .orders h2, .low-stock h2 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .orders-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .order-box {
+      background: #fff;
+      padding: 16px;
+      border-radius: 16px;
+      box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .order-box h3 {
+      font-weight: 600;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .order-box ul {
+      list-style: none;
+      padding: 0;
+      font-size: 14px;
+    }
+
+    .order-box li {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+
+    .low-stock-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .stock-alert {
+      background-color: #fef3c7;
+      padding: 16px;
+      border-radius: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .stock-alert p {
+      margin: 4px 0;
+      font-size: 14px;
+    }
+
+    .stock-alert button {
+      background-color: #f97316;
+      color: white;
+      border: none;
+      padding: 8px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .stock-alert button:hover {
+      background-color: #ea580c;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+    <aside>
+      <h2>DASHBOARD</h2>
+      <p>Vendor</p>
+      <nav>
+        <a href="#" class="active">🏠 Dashboard</a>
+        <a href="#">📦 My Products</a>
+        <a href="#">📥 Inventory</a>
+        <a href="#">🛒 Orders</a>
+        <a href="#">👤 Profile</a>
+        <a href="#">🔔 Notifications</a>
+        <a href="#">💬 Chat</a>
+      </nav>
+    </aside>
+
+    <!-- Main Content -->
+    <main>
+      <!-- Top Cards -->
+      <div class="top-cards">
+        <div class="card">
+          <p>Total Sales</p>
+          <h3>₹2,45,680</h3>
+          <p class="change green">+12%</p>
+        </div>
+        <div class="card">
+          <p>Pending Orders</p>
+          <h3>23</h3>
+          <p class="change orange">+5</p>
+        </div>
+        <div class="card top-selling">
+          <p>Top Selling Items</p>
+          <ul>
+            <li><span>Basmati Rice</span><span class="blue">45 sold</span></li>
+            <li><span>Organic Wheat Flour</span><span class="blue">38 sold</span></li>
+            <li><span>Cold Pressed Coconut Oil</span><span class="blue">31 sold</span></li>
+          </ul>
+        </div>
+        <div class="card">
+          <p>Notifications</p>
+          <h3>8</h3>
+          <p class="change red">3 new</p>
+        </div>
+      </div>
+
+      <!-- Quick Actions -->
+      <div class="actions">
+        <h2>Quick Actions</h2>
+        <div class="action-buttons">
+          <button class="btn-green">My product</button>
+          <button class="btn-outline-green">Update Inventory</button>
+          <button class="btn-yellow">View Orders</button>
+        </div>
+      </div>
+
+      <!-- Recent Orders -->
+      <div class="orders">
+        <h2>Recent Orders</h2>
+        <div class="orders-grid">
+          <div class="order-box">
+            <h3 class="green">✅ Delivered</h3>
+            <ul>
+              <li>Raj Tea Stall <span class="green">✔</span></li>
+              <li>Nature Foods <span class="green">✔</span></li>
+              <li>Anand Sweets <span class="green">✔</span></li>
+            </ul>
+          </div>
+          <div class="order-box">
+            <h3 class="orange">🟠 Pending</h3>
+            <ul>
+              <li>Sharma Pani Puri <span class="orange">✔</span></li>
+              <li>Suresh Snacks <span class="orange">✔</span></li>
+            </ul>
+          </div>
+          <div class="order-box">
+            <h3 class="red">❌ Cancelled</h3>
+            <ul>
+              <li>Metro Chat Center <span class="red">✔</span></li>
+              <li>KK Canteen <span class="red">✔</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Low Stock Alerts -->
+      <div class="low-stock">
+        <h2>⚠ Low Stock Alerts</h2>
+        <div class="low-stock-grid">
+          <div class="stock-alert">
+            <div>
+              <p><strong>Organic Turmeric Powder</strong></p>
+              <p>Only 15 units left</p>
+            </div>
+            <button>Update Stock</button>
+          </div>
+          <div class="stock-alert">
+            <div>
+              <p><strong>Cold Pressed Mustard Oil</strong></p>
+              <p>Only 5 units left</p>
+            </div>
+            <button>Update Stock</button>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+</body>
+</html>
