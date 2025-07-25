@@ -1,165 +1,319 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>VendorConnect Dashboard</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" />
-  </head>
-  <body class="bg-gray-50 font-[Inter]">
-    <div class="flex min-h-screen">
-      <!-- Sidebar -->
-      <aside class="w-64 bg-white border-r p-6">
-        <h2 class="text-2xl font-bold text-teal-600">Vendor</h2>
-        <p class="text-sm text-gray-500 mb-8">Vendor Dashboard</p>
-        <nav class="space-y-4">
-          <a href="#" class="flex items-center text-white bg-blue-600 px-3 py-2 rounded-md font-semibold">
-            <span>🏠</span> Dashboard
-          </a>
-          <a href="#" class="flex items-center gap-2 text-gray-700 hover:text-blue-600">
-            <span>📦</span> My Products
-          </a>
-          <a href="#" class="flex items-center gap-2 text-gray-700 hover:text-blue-600">
-            <span>📥</span> Inventory
-          </a>
-          <a href="#" class="flex items-center gap-2 text-gray-700 hover:text-blue-600">
-            <span>🛒</span> Orders
-          </a>
-          <a href="#" class="flex items-center gap-2 text-gray-700 hover:text-blue-600">
-            <span>👤</span> Profile
-          </a>
-          <a href="#" class="flex items-center gap-2 text-gray-700 hover:text-blue-600">
-            <span>🔔</span> Notifications
-          </a>
-          <a href="#" class="flex items-center gap-2 text-gray-700 hover:text-blue-600">
-            <span>💬</span> Chat
-          </a>
-        </nav>
-      </aside>
+<head>
+  <meta charset="UTF-8" />
+  <title>VendorConnect Dashboard</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" />
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-      <!-- Main Content -->
-      <main class="flex-1 p-8">
-        <!-- Top Cards -->
-        <div class="grid grid-cols-4 gap-6 mb-6">
-          <div class="bg-white p-6 rounded-xl shadow-md">
-            <p class="text-sm text-gray-500">Total Sales</p>
-            <h3 class="text-2xl font-bold">₹2,45,680</h3>
-            <p class="text-green-500 text-sm mt-1">+12%</p>
-          </div>
-          <div class="bg-white p-6 rounded-xl shadow-md">
-            <p class="text-sm text-gray-500">Pending Orders</p>
-            <h3 class="text-2xl font-bold">23</h3>
-            <p class="text-orange-500 text-sm mt-1">+5</p>
-          </div>
-          <div class="bg-white p-6 rounded-xl shadow-md">
-            <p class="text-sm text-gray-500 mb-2">Top Selling Items</p>
-            <ul class="space-y-1">
-              <li class="flex justify-between">
-                <span class="font-medium text-gray-800">Basmati Rice</span>
-                <span class="text-blue-500 text-sm">45 sold</span>
-              </li>
-              <li class="flex justify-between">
-                <span class="font-medium text-gray-800">Organic Wheat Flour</span>
-                <span class="text-blue-500 text-sm">38 sold</span>
-              </li>
-              <li class="flex justify-between">
-                <span class="font-medium text-gray-800">Cold Pressed Coconut Oil</span>
-                <span class="text-blue-500 text-sm">31 sold</span>
-              </li>
-            </ul>
-          </div>
-          <div class="bg-white p-6 rounded-xl shadow-md">
-            <p class="text-sm text-gray-500">Notifications</p>
-            <h3 class="text-2xl font-bold">8</h3>
-            <p class="text-red-500 text-sm mt-1">3 new</p>
-          </div>
-        </div>
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f9fafb;
+      min-height: 100vh;
+      display: flex;
+    }
 
-        <!-- Quick Actions -->
-        <div class="mb-8">
-          <h2 class="text-lg font-semibold mb-4">Quick Actions</h2>
-          <div class="flex gap-4">
-            <button class="bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-lg">
-              My product
-            </button>
-            <button class="border border-green-500 text-green-600 hover:bg-green-100 font-semibold py-2 px-4 rounded-lg">
-              Update Inventory
-            </button>
-            <button class="bg-yellow-500 hover:bg-yellow-600 text-white font-semibold py-2 px-4 rounded-lg">
-              View Orders
-            </button>
-          </div>
-        </div>
+    aside {
+      width: 260px;
+      background: #fff;
+      border-right: 1px solid #e5e7eb;
+      padding: 24px;
+    }
 
-        <!-- Recent Orders in 3 Columns -->
-        <div class="mb-8">
-          <h2 class="text-lg font-semibold mb-4">Recent Orders</h2>
-          <div class="grid grid-cols-3 gap-4">
-            <!-- Delivered -->
-            <div class="bg-white p-4 rounded-xl shadow">
-              <h3 class="text-green-600 font-semibold mb-2 flex items-center gap-1">✅ Delivered</h3>
-              <ul class="space-y-2 text-sm">
-                <li class="flex justify-between items-center">
-                  Raj Tea Stall <span class="text-green-600">✔</span>
-                </li>
-                <li class="flex justify-between items-center">
-                  Nature Foods <span class="text-green-600">✔</span>
-                </li>
-                <li class="flex justify-between items-center">
-                  Anand Sweets <span class="text-green-600">✔</span>
-                </li>
-              </ul>
-            </div>
+    aside h2 {
+      color: #0f766e;
+      font-size: 24px;
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
 
-            <!-- Pending -->
-            <div class="bg-white p-4 rounded-xl shadow">
-              <h3 class="text-yellow-600 font-semibold mb-2 flex items-center gap-1">🟠 Pending</h3>
-              <ul class="space-y-2 text-sm">
-                <li class="flex justify-between items-center">
-                  Sharma Pani Puri <span class="text-yellow-600">✔</span>
-                </li>
-                <li class="flex justify-between items-center">
-                  Suresh Snacks <span class="text-yellow-600">✔</span>
-                </li>
-              </ul>
-            </div>
+    aside p {
+      font-size: 14px;
+      color: #6b7280;
+      margin-bottom: 32px;
+    }
 
-            <!-- Cancelled -->
-            <div class="bg-white p-4 rounded-xl shadow">
-              <h3 class="text-red-600 font-semibold mb-2 flex items-center gap-1">❌ Cancelled</h3>
-              <ul class="space-y-2 text-sm">
-                <li class="flex justify-between items-center">
-                  Metro Chat Center <span class="text-red-600">✔</span>
-                </li>
-                <li class="flex justify-between items-center">
-                  KK Canteen <span class="text-red-600">✔</span>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
+    nav a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 16px;
+      text-decoration: none;
+      padding: 10px 12px;
+      border-radius: 6px;
+      color: #374151;
+      transition: background 0.2s, color 0.2s;
+    }
 
-        <!-- Low Stock Alerts -->
-        <div>
-          <h2 class="text-lg font-semibold mb-4 flex items-center gap-2">⚠️ Low Stock Alerts</h2>
-          <div class="grid grid-cols-2 gap-6">
-            <div class="bg-yellow-100 p-4 rounded-xl flex justify-between items-center">
-              <div>
-                <p class="font-semibold">Organic Turmeric Powder</p>
-                <p class="text-gray-600 text-sm">Only 15 units left</p>
-              </div>
-              <button class="bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600">Update Stock</button>
-            </div>
-            <div class="bg-yellow-100 p-4 rounded-xl flex justify-between items-center">
-              <div>
-                <p class="font-semibold">Cold Pressed Mustard Oil</p>
-                <p class="text-gray-600 text-sm">Only 5 units left</p>
-              </div>
-              <button class="bg-orange-500 text-white px-4 py-2 rounded-lg hover:bg-orange-600">Update Stock</button>
-            </div>
-          </div>
-        </div>
-      </main>
+    nav a:hover {
+      color: #2563eb;
+      background-color: #f3f4f6;
+    }
+
+    nav a.active {
+      background-color: #2563eb;
+      color: white;
+      font-weight: 600;
+    }
+
+    main {
+      flex: 1;
+      padding: 32px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 24px;
+      margin-bottom: 24px;
+    }
+
+    .card {
+      background: #fff;
+      padding: 24px;
+      border-radius: 16px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #6b7280;
+      margin-bottom: 6px;
+    }
+
+    .card h3 {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .card .positive {
+      color: #16a34a;
+    }
+
+    .card .warning {
+      color: #f97316;
+    }
+
+    .card .danger {
+      color: #dc2626;
+    }
+
+    .top-items ul {
+      list-style: none;
+      padding: 0;
+      margin-top: 10px;
+    }
+
+    .top-items li {
+      display: flex;
+      justify-content: space-between;
+      font-size: 14px;
+      margin-bottom: 6px;
+    }
+
+    .quick-actions {
+      margin-bottom: 32px;
+    }
+
+    .quick-actions h2 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    .quick-actions button {
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      margin-right: 12px;
+      transition: background 0.2s;
+    }
+
+    .btn-green {
+      background-color: #22c55e;
+      color: white;
+    }
+
+    .btn-green:hover {
+      background-color: #16a34a;
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 2px solid #22c55e;
+      color: #15803d;
+    }
+
+    .btn-outline:hover {
+      background-color: #ecfdf5;
+    }
+
+    .btn-yellow {
+      background-color: #facc15;
+      color: black;
+    }
+
+    .btn-yellow:hover {
+      background-color: #eab308;
+    }
+
+    .order-columns {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 32px;
+    }
+
+    .order-card {
+      background: white;
+      padding: 16px;
+      border-radius: 12px;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.06);
+    }
+
+    .order-card h3 {
+      font-weight: 600;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .order-card ul {
+      list-style: none;
+      padding: 0;
+      font-size: 14px;
+    }
+
+    .order-card li {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 6px;
+    }
+
+    .delivered {
+      color: #16a34a;
+    }
+
+    .pending {
+      color: #f59e0b;
+    }
+
+    .cancelled {
+      color: #dc2626;
+    }
+
+    .low-stock h2 {
+      font-size: 18px;
+      font-weight: 600;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .stock-alerts {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .alert {
+      background-color: #fef9c3;
+      padding: 16px;
+      border-radius: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .alert p {
+      margin: 0;
+    }
+
+    .alert-button {
+      background-color: #f97316;
+      color: white;
+      padding: 8px 12px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .alert-button:hover {
+      background-color: #ea580c;
+    }
+  </style>
+</head>
+<body>
+  <aside>
+    <h2>DASHBOARD</h2>
+    <p>Vendor</p>
+    <nav>
+      <a href="#" class="active"><span>🏠</span> Dashboard</a>
+      <a href="#"><span>📦</span> My Products</a>
+      <a href="#"><span>📥</span> Inventory</a>
+      <a href="#"><span>🛒</span> Orders</a>
+      <a href="#"><span>👤</span> Profile</a>
+      <a href="#"><span>🔔</span> Notifications</a>
+      <a href="#"><span>💬</span> Chat</a>
+    </nav>
+  </aside>
+
+  <main>
+    <!-- Top Cards -->
+    <div class="card-grid">
+      <div class="card">
+        <p>Total Sales</p>
+        <h3>₹2,45,680</h3>
+        <p class="positive">+12%</p>
+      </div>
+      <div class="card">
+        <p>Pending Orders</p>
+        <h3>23</h3>
+        <p class="warning">+5</p>
+      </div>
+      <div class="card top-items">
+        <p>Top Selling Items</p>
+        <ul>
+          <li><span>Basmati Rice</span> <span class="positive">45 sold</span></li>
+          <li><span>Organic Wheat Flour</span> <span class="positive">38 sold</span></li>
+          <li><span>Cold Pressed Coconut Oil</span> <span class="positive">31 sold</span></li>
+        </ul>
+      </div>
+      <div class="card">
+        <p>Notifications</p>
+        <h3>8</h3>
+        <p class="danger">3 new</p>
+      </div>
     </div>
-  </body>
-</html>
+
+    <!-- Quick Actions -->
+    <div class="quick-actions">
+      <h2>Quick Actions</h2>
+      <button class="btn-green">My product</button>
+      <button class="btn-outline">Update Inventory</button>
+      <button class="btn-yellow">View Orders</button>
+    </div>
+
+    <!-- Recent Orders -->
+    <div class="order-columns">
+      <div class="order-card">
+        <h3 class="delivered">✅ Delivered</h3>
+        <ul>
+          <li>Raj Tea Stall <span class="delivered">✔</span></li>
+          <li>Nature Foods <span class="delivered">✔</span></li>
+          <li>Anand Sweets <span class="delivered">✔</span></li>
+        </ul>
+      </div>
+      <div class="order-card">
+        <h3 class="pending">🟠 Pending</h3>
+        <ul>
+          <li>Sharma Pani Puri <span class="pending">✔</span></li>
