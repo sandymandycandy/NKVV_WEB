@@ -3,18 +3,33 @@
 <head>
   <meta charset="UTF-8" />
   <title>ScubeG - Sign Up</title>
-  <script src="https://cdn.tailwindcss.com"></script>
   <link href="https://fonts.googleapis.com/css2?family=Michroma&display=swap" rel="stylesheet" />
   <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
       font-family: 'Michroma', sans-serif;
       background: url('https://uploads.onecompiler.io/43rrvywxn/43rrvxhs2/Screenshot_25-7-2025_134332_www.designevo.com.jpeg') no-repeat center center fixed;
       background-size: cover;
       overflow: hidden;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
+
     .portal {
       backdrop-filter: blur(12px);
       background: rgba(0, 0, 0, 0.85);
+      padding: 40px;
+      border-radius: 24px;
+      width: 90%;
+      max-width: 400px;
+      color: white;
       box-shadow:
         0 10px 20px rgba(0, 0, 0, 0.5),
         inset 0 0 15px rgba(255, 255, 255, 0.05);
@@ -22,50 +37,118 @@
       transform: perspective(1000px) rotateX(1deg) rotateY(1deg);
       transition: transform 0.3s ease;
     }
+
     .portal:hover {
       transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1.02);
     }
+
+    .logo {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 24px;
+    }
+
+    .logo img {
+      width: 64px;
+      height: 64px;
+    }
+
+    h2 {
+      text-align: center;
+      font-size: 24px;
+      margin-bottom: 24px;
+      font-weight: bold;
+    }
+
+    h2 span {
+      color: #4ea1f3;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    label {
+      font-size: 14px;
+      margin-bottom: 4px;
+      display: block;
+    }
+
+    input[type="text"],
+    input[type="email"],
+    input[type="password"] {
+      width: 100%;
+      padding: 10px 16px;
+      border-radius: 6px;
+      background-color: rgba(30, 41, 59, 0.8);
+      border: 1px solid #374151;
+      color: white;
+      margin-bottom: 16px;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #4ea1f3;
+      box-shadow: 0 0 0 2px #4ea1f3;
+    }
+
+    button {
+      background-color: #0066cc;
+      color: white;
+      padding: 10px;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #004c99;
+    }
+
+    .signup-footer {
+      text-align: center;
+      font-size: 14px;
+      margin-top: 24px;
+    }
+
+    .signup-footer a {
+      color: #4ea1f3;
+      text-decoration: none;
+    }
+
+    .signup-footer a:hover {
+      text-decoration: underline;
+    }
   </style>
 </head>
-<body class="flex items-center justify-center h-screen">
+<body>
 
-  <div class="portal p-10 rounded-3xl w-[90%] max-w-md text-white z-10">
-    <div class="flex justify-center mb-6">
-      <img src="https://uploads.onecompiler.io/43rrvywxn/43rrvxhs2/Screenshot_25-7-2025_135128_www.designevo.com.jpeg" alt="ScubeG Logo" class="w-16 h-16" />
+  <div class="portal">
+    <div class="logo">
+      <img src="https://uploads.onecompiler.io/43rrvywxn/43rrvxhs2/Screenshot_25-7-2025_135128_www.designevo.com.jpeg" alt="ScubeG Logo" />
     </div>
-    <h2 class="text-2xl text-center font-bold mb-6 text-white">Create Your <span class="text-blue-400">ScubeG</span> Account</h2>
+    <h2>Create Your <span>ScubeG</span> Account</h2>
 
     <form>
-      <div class="mb-4">
-        <label for="fullname" class="block text-sm mb-1">Full Name</label>
-        <input type="text" id="fullname" placeholder="John Doe" required
-          class="w-full px-4 py-2 rounded bg-gray-900 bg-opacity-70 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-      </div>
+      <label for="fullname">Full Name</label>
+      <input type="text" id="fullname" placeholder="John Doe" required>
 
-      <div class="mb-4">
-        <label for="email" class="block text-sm mb-1">Email</label>
-        <input type="email" id="email" placeholder="you@example.com" required
-          class="w-full px-4 py-2 rounded bg-gray-900 bg-opacity-70 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-      </div>
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="you@example.com" required>
 
-      <div class="mb-4">
-        <label for="password" class="block text-sm mb-1">Password</label>
-        <input type="password" id="password" placeholder="••••••••" required
-          class="w-full px-4 py-2 rounded bg-gray-900 bg-opacity-70 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-      </div>
+      <label for="password">Password</label>
+      <input type="password" id="password" placeholder="••••••••" required>
 
-      <div class="mb-4">
-        <label for="confirm-password" class="block text-sm mb-1">Confirm Password</label>
-        <input type="password" id="confirm-password" placeholder="••••••••" required
-          class="w-full px-4 py-2 rounded bg-gray-900 bg-opacity-70 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500" />
-      </div>
+      <label for="confirm-password">Confirm Password</label>
+      <input type="password" id="confirm-password" placeholder="••••••••" required>
 
-      <button type="submit"
-        class="w-full py-2 rounded bg-blue-600 hover:bg-blue-700 transition duration-300">Sign Up</button>
+      <button type="submit">Sign Up</button>
     </form>
 
-    <p class="text-center text-sm mt-6">
-      Already have an account? <a href="login.html" class="text-blue-400 hover:underline">Sign In</a>
+    <p class="signup-footer">
+      Already have an account? <a href="login.html">Sign In</a>
     </p>
   </div>
 
