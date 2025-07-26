@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>My Cart - VendorConnect</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" />
+  </head>
+  <body class="bg-gray-100 font-[Inter]">
+    <div class="flex min-h-screen">
+      <!-- Sidebar -->
+      <aside class="w-64 bg-white border-r p-6">
+        <h2 class="text-2xl font-bold text-teal-600">Dashboard</h2>
+        <p class="text-sm text-gray-500 mb-8">Buyer</p>
+        <nav class="space-y-4">
+          <a href="#" class="flex items-center gap-2 text-gray-700 hover:text-blue-600 ">🏠 Home</a>
+          <a href="#" class="flex items-center gap-2 text-gray-700 hover:text-blue-600">📦 Products Listing</a>
+          <a href="#" class="flex items-center text-white bg-blue-600 px-3 py-2 rounded-md font-semibold">🛒 My Cart</a>
+          <a href="#" class="flex items-center gap-2 text-gray-700 hover:text-blue-600">👤 Profile</a>
+          <a href="#" class="flex items-center gap-2 text-gray-700 hover:text-blue-600">📥 History</a>
+          <a href="#" class="flex items-center gap-2 text-gray-700 hover:text-blue-600">💬 Chat</a>
+        </nav>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="flex-1 p-8">
+        <h1 class="text-2xl font-bold mb-6 text-gray-800">🛒 My Cart</h1>
+
+        <div class="space-y-6">
+          <!-- Item 1 -->
+          <div class="flex justify-between items-start bg-white p-6 rounded-xl shadow relative">
+            <div>
+              <h3 class="text-lg font-semibold text-gray-800">Premium Cashews</h3>
+              <p class="text-sm text-gray-500">Sold by: <a href="#" class="text-blue-600 hover:underline">DryNut Delights</a></p>
+              <p class="text-green-600 font-medium mt-2">₹850</p>
+
+              <!-- Quantity -->
+              <div class="mt-2">
+                <span class="text-sm text-gray-600" id="qty-label-1">Quantity: <span id="qty-value-1">1kg</span></span>
+                <div id="qty-edit-1" class="hidden mt-1">
+                  <input type="text" id="qty-input-1" value="1kg" class="border border-gray-300 rounded px-2 py-1 text-sm" />
+                  <button onclick="saveQty(1)" class="ml-2 text-sm text-green-600 font-semibold hover:underline">Save</button>
+                </div>
+                <button onclick="editQty(1)" class="ml-3 text-sm text-blue-600 font-semibold hover:underline">Edit</button>
+              </div>
+
+              <button class="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Remove</button>
+            </div>
+            <div class="text-right text-sm text-gray-600">
+              <p class="font-semibold text-gray-700">Delivery:</p>
+              <p>Est. Delivery: <span class="text-gray-800 font-medium">2 - 4 days</span></p>
+              <p class="text-green-500">Free Shipping</p>
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="flex justify-between items-start bg-white p-6 rounded-xl shadow relative">
+            <div>
+              <h3 class="text-lg font-semibold text-gray-800">Organic Jaggery</h3>
+              <p class="text-sm text-gray-500">Sold by: <a href="#" class="text-blue-600 hover:underline">Healthy Roots</a></p>
+              <p class="text-green-600 font-medium mt-2">₹120</p>
+
+              <!-- Quantity -->
+              <div class="mt-2">
+                <span class="text-sm text-gray-600" id="qty-label-2">Quantity: <span id="qty-value-2">500g</span></span>
+                <div id="qty-edit-2" class="hidden mt-1">
+                  <input type="text" id="qty-input-2" value="500g" class="border border-gray-300 rounded px-2 py-1 text-sm" />
+                  <button onclick="saveQty(2)" class="ml-2 text-sm text-green-600 font-semibold hover:underline">Save</button>
+                </div>
+                <button onclick="editQty(2)" class="ml-3 text-sm text-blue-600 font-semibold hover:underline">Edit</button>
+              </div>
+
+              <button class="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Remove</button>
+            </div>
+            <div class="text-right text-sm text-gray-600">
+              <p class="font-semibold text-gray-700">Delivery:</p>
+              <p>Est. Delivery: <span class="text-gray-800 font-medium">3 - 5 days</span></p>
+              <p class="text-green-500">Free Shipping</p>
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="flex justify-between items-start bg-white p-6 rounded-xl shadow relative">
+            <div>
+              <h3 class="text-lg font-semibold text-gray-800">Multigrain Atta</h3>
+              <p class="text-sm text-gray-500">Sold by: <a href="#" class="text-blue-600 hover:underline">GrainPro India</a></p>
+              <p class="text-green-600 font-medium mt-2">₹240</p>
+
+              <!-- Quantity -->
+              <div class="mt-2">
+                <span class="text-sm text-gray-600" id="qty-label-3">Quantity: <span id="qty-value-3">2kg</span></span>
+                <div id="qty-edit-3" class="hidden mt-1">
+                  <input type="text" id="qty-input-3" value="2kg" class="border border-gray-300 rounded px-2 py-1 text-sm" />
+                  <button onclick="saveQty(3)" class="ml-2 text-sm text-green-600 font-semibold hover:underline">Save</button>
+                </div>
+                <button onclick="editQty(3)" class="ml-3 text-sm text-blue-600 font-semibold hover:underline">Edit</button>
+              </div>
+
+              <button class="mt-4 bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Remove</button>
+            </div>
+            <div class="text-right text-sm text-gray-600">
+              <p class="font-semibold text-gray-700">Delivery:</p>
+              <p>Est. Delivery: <span class="text-gray-800 font-medium">1 - 2 days</span></p>
+              <p class="text-green-500">Free Shipping</p>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- Edit/Save JavaScript -->
+    <script>
+      function editQty(id) {
+        document.getElementById(`qty-label-${id}`).classList.add('hidden');
+        document.getElementById(`qty-edit-${id}`).classList.remove('hidden');
+      }
+
+      function saveQty(id) {
+        const newQty = document.getElementById(`qty-input-${id}`).value;
+        document.getElementById(`qty-value-${id}`).innerText = newQty;
+        document.getElementById(`qty-label-${id}`).classList.remove('hidden');
+        document.getElementById(`qty-edit-${id}`).classList.add('hidden');
+      }
+    </script>
+  </body>
+</html>
