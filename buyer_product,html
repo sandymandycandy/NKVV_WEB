@@ -14,17 +14,14 @@
     <aside class="w-64 bg-white shadow-lg border-r">
       <div class="p-6">
         <h2 class="text-2xl font-bold text-green-700">DASHBOARD</h2>
-        <p class="text-sm text-gray-500">Sellar</p>
+        <p class="text-sm text-gray-500">Buyer</p>
       </div>
       <nav class="flex flex-col px-4 space-y-2 text-gray-700">
         <a href="#" class="flex items-center gap-2 p-2 rounded-lg hover:bg-gray-100">
-          🏠 Dashboard
+          🏠 Home
         </a>
         <a href="#" class="flex items-center gap-2 p-2 rounded-lg bg-blue-600 text-white font-semibold">
-          🛍️ Buy Products
-        </a>
-        <a href="#" class="flex items-center gap-2 p-2 rounded-lg hover:bg-gray-100">
-          🔖 Super Sales
+          🛍️ Products
         </a>
         <a href="#" class="flex items-center gap-2 p-2 rounded-lg hover:bg-gray-100">
           🛒 My Cart
@@ -33,7 +30,7 @@
           👤 Profile
         </a>
         <a href="#" class="flex items-center gap-2 p-2 rounded-lg hover:bg-gray-100">
-          🔔 Notifications
+          🔖 History
         </a>
         <a href="#" class="flex items-center gap-2 p-2 rounded-lg hover:bg-gray-100">
           💬 Chat
