@@ -25,7 +25,7 @@
           <a href="#" class="flex items-center gap-2 text-gray-700 hover:text-blue-600">
             <span>👤</span> Profile
           </a>
-           <a href="#" class="flex items-center gap-2 text-gray-700 hover:text-blue-600">
+          <a href="#" class="flex items-center gap-2 text-gray-700 hover:text-blue-600">
             <span>📥</span> History
           </a>
           <a href="#" class="flex items-center gap-2 text-gray-700 hover:text-blue-600">
@@ -36,27 +36,85 @@
 
       <!-- Main Content -->
       <main class="flex-1 p-8">
-        <!-- Ongoing Offer Sales Section -->
-        <div>
-          <h2 class="text-lg font-semibold mb-4">Ongoing Offer Sales</h2>
-          <div class="grid grid-cols-3 gap-4">
-            <!-- Offer 1 -->
-            <div class="bg-yellow-100 border-l-4 border-yellow-500 p-4 rounded-xl shadow">
-              <h3 class="text-yellow-800 font-semibold mb-2">Buy 1 Get 1 Free</h3>
-              <p class="text-sm text-gray-700">On select organic vegetables. Offer valid until July 31st.</p>
+
+        <!-- 🔥 Ad Section: Offers + Bestsellers -->
+        <div class="mb-8 bg-gradient-to-r from-yellow-100 via-pink-100 to-blue-100 border border-yellow-300 p-6 rounded-2xl shadow-lg">
+          <div class="flex justify-between items-center mb-4">
+            <h2 class="text-2xl font-bold text-gray-800">🔥 Today's Spotlight</h2>
+          </div>
+
+          <div class="flex gap-8">
+            <!-- Offers -->
+            <div class="w-2/3">
+              <h3 class="text-xl font-semibold text-yellow-800 mb-3">Ongoing Sales</h3>
+              <div class="grid grid-cols-3 gap-4">
+                <div class="bg-white border-l-4 border-yellow-500 p-4 rounded-lg shadow-sm">
+                  <h4 class="text-yellow-700 font-semibold mb-1">Buy 1 Get 1 Free</h4>
+                  <p class="text-sm text-gray-600">On select organic vegetables. Valid till July 31st.</p>
+                </div>
+                <div class="bg-white border-l-4 border-green-500 p-4 rounded-lg shadow-sm">
+                  <h4 class="text-green-700 font-semibold mb-1">20% Off</h4>
+                  <p class="text-sm text-gray-600">On orders above ₹1000 from Nature Foods.</p>
+                </div>
+                <div class="bg-white border-l-4 border-blue-500 p-4 rounded-lg shadow-sm">
+                  <h4 class="text-blue-700 font-semibold mb-1">Free Delivery</h4>
+                  <p class="text-sm text-gray-600">For all orders placed this weekend.</p>
+                </div>
+              </div>
             </div>
 
-            <!-- Offer 2 -->
-            <div class="bg-green-100 border-l-4 border-green-500 p-4 rounded-xl shadow">
-              <h3 class="text-green-800 font-semibold mb-2">20% Off</h3>
-              <p class="text-sm text-gray-700">On orders above ₹1000 from Nature Foods.</p>
+            <!-- Bestsellers -->
+            <div class="w-1/3 bg-white p-4 rounded-lg shadow-sm border border-gray-200">
+              <h3 class="text-xl font-semibold text-pink-700 mb-3">Bestsellers</h3>
+              <ul class="space-y-2 text-sm">
+                <li class="flex justify-between">
+                  <span class="font-medium text-gray-800">Paneer Puffs</span>
+                  <span class="text-gray-500">120 sold</span>
+                </li>
+                <li class="flex justify-between">
+                  <span class="font-medium text-gray-800">Masala Dosa</span>
+                  <span class="text-gray-500">98 sold</span>
+                </li>
+                <li class="flex justify-between">
+                  <span class="font-medium text-gray-800">Samosa</span>
+                  <span class="text-gray-500">85 sold</span>
+                </li>
+              </ul>
             </div>
+          </div>
+        </div>
 
-            <!-- Offer 3 -->
-            <div class="bg-blue-100 border-l-4 border-blue-500 p-4 rounded-xl shadow">
-              <h3 class="text-blue-800 font-semibold mb-2">Free Delivery</h3>
-              <p class="text-sm text-gray-700">For all orders placed this weekend.</p>
-            </div>
+        <!-- ✅ Top Cards Section: Immediately after Ad -->
+        <div class="grid grid-cols-3 gap-4 mb-8">
+          <!-- Successful Orders -->
+          <div class="bg-white p-6 rounded-xl shadow-md">
+            <p class="text-sm text-gray-500">Successful Orders</p>
+            <p class="text-green-500 text-2xl font-semibold mt-1">7</p>
+          </div>
+
+          <!-- Pending Orders -->
+          <div class="bg-white p-6 rounded-xl shadow-md">
+            <p class="text-sm text-gray-500">Pending Orders</p>
+            <p class="text-orange-600 text-2xl font-semibold mt-1">6</p>
+          </div>
+
+          <!-- Frequently Bought Items -->
+          <div class="bg-white p-6 rounded-xl shadow-md">
+            <p class="text-sm text-gray-500 mb-2">Frequently Bought Items</p>
+            <ul class="space-y-1 text-sm">
+              <li class="flex justify-between">
+                <span class="font-medium text-gray-800">Basmati Rice</span>
+                <span class="text-blue-500">45 bought</span>
+              </li>
+              <li class="flex justify-between">
+                <span class="font-medium text-gray-800">Wheat Flour</span>
+                <span class="text-blue-500">39 bought</span>
+              </li>
+              <li class="flex justify-between">
+                <span class="font-medium text-gray-800">Sunflower Oil</span>
+                <span class="text-blue-500">35 bought</span>
+              </li>
+            </ul>
           </div>
         </div>
 
@@ -123,36 +181,7 @@
             </div>
           </div>
         </div>
-        
-        <!-- Top Cards -->
-        <div class="grid grid-cols-3 gap-4">
-          <div class="bg-white p-6 rounded-xl shadow-md">
-            <p class="text-sm text-gray-500">Successful orders</p>
-            <p class="text-green-500 text-sm mt-1">7</p>
-          </div>
-          <div class="bg-white p-6 rounded-xl shadow-md">
-            <p class="text-sm text-gray-500">Pending Orders</p>
-            <p class="text-orange-600 text-sm mt-1">6</p>
-          </div>
-          <div class="bg-white p-6 rounded-xl shadow-md">
-            <p class="text-sm text-gray-500 mb-2">Frequently bought Items</p>
-            <ul class="space-y-1">
-              <li class="flex justify-between">
-                <span class="font-medium text-gray-800">Basmati Rice</span>
-                <span class="text-blue-500 text-sm">45 bought</span>
-              </li>
-              <li class="flex justify-between">
-                <span class="font-medium text-gray-800">Organic Wheat Flour</span>
-                <span class="text-blue-500 text-sm">38 bought</span>
-              </li>
-              <li class="flex justify-between">
-                <span class="font-medium text-gray-800">Cold Pressed Coconut Oil</span>
-                <span class="text-blue-500 text-sm">31 bought</span>
-              </li>
-            </ul>
-          </div>
-        </div>
-        
+
       </main>
     </div>
   </body>
