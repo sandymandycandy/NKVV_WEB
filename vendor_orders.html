@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>VendorMitra Orders</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f9fafb;
+      color: #333;
+    }
+
+    .container {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    aside {
+      width: 260px;
+      background-color: #ffffff;
+      border-right: 1px solid #e5e7eb;
+      padding: 24px;
+    }
+
+    aside h1 {
+      font-size: 24px;
+      font-weight: 700;
+      color: #16a34a;
+      margin-bottom: 4px;
+    }
+
+    aside p {
+      font-size: 14px;
+      color: #6b7280;
+      margin-bottom: 24px;
+    }
+
+    nav a {
+      display: flex;
+      align-items: center;
+      font-size: 15px;
+      font-weight: 500;
+      color: #374151;
+      text-decoration: none;
+      margin-bottom: 12px;
+      padding: 8px;
+      border-radius: 6px;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    nav a span {
+      margin-right: 8px;
+    }
+
+    nav a:hover {
+      color: #16a34a;
+      background-color: #f3f4f6;
+    }
+
+    nav a.active {
+      background-color: #2563eb;
+      color: #ffffff;
+      font-weight: 600;
+    }
+
+    main {
+      flex: 1;
+      padding: 40px;
+    }
+
+    h2 {
+      font-size: 28px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .subtitle {
+      font-size: 15px;
+      color: #6b7280;
+      margin-bottom: 24px;
+    }
+
+    .table-wrapper {
+      background-color: #ffffff;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      overflow-x: auto;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 15px;
+      text-align: left;
+    }
+
+    thead {
+      background-color: #f3f4f6;
+      color: #4b5563;
+    }
+
+    th, td {
+      padding: 16px 24px;
+    }
+
+    tbody tr {
+      border-top: 1px solid #e5e7eb;
+    }
+
+    .status {
+      display: inline-block;
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 500;
+      color: white;
+    }
+
+    .delivered {
+      background-color: #22c55e;
+    }
+
+    .pending {
+      background-color: #facc15;
+      color: #1e293b;
+    }
+
+    .cancelled {
+      background-color: #ef4444;
+    }
+
+    .rating {
+      color: #facc15;
+      font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+      aside {
+        display: none;
+      }
+
+      main {
+        padding: 20px;
+      }
+
+      table {
+        font-size: 14px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="container">
+  <!-- Sidebar -->
+  <aside>
+    <h1>DASHBOAR</h1>
+    <p>Vendor Dashboard</p>
+    <nav>
+      <a href="#"><span>📊</span> Dashboard</a>
+      <a href="#"><span>📦</span> My Products</a>
+      <a href="#"><span>🏬</span> Inventory</a>
+      <a href="#" class="active"><span>🛒</span> Orders</a>
+      <a href="#"><span>👤</span> Profile</a>
+      <a href="#"><span>🔔</span> Notifications</a>
+      <a href="#"><span>💬</span> Chat</a>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main>
+    <h2>Order History</h2>
+    <p class="subtitle">Track and manage your orders</p>
+
+    <!-- Table -->
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Order ID</th>
+            <th>Customer</th>
+            <th>Date</th>
+            <th>Amount</th>
+            <th>Status</th>
+            <th>Rating</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>ORD001</strong></td>
+            <td>Raj Tea Stall</td>
+            <td>2024-01-15</td>
+            <td><strong>₹3,450</strong></td>
+            <td><span class="status delivered">Delivered</span></td>
+            <td class="rating">⭐ 5</td>
+          </tr>
+          <tr>
+            <td><strong>ORD002</strong></td>
+            <td>Sharma Pani Puri</td>
+            <td>2024-01-14</td>
+            <td><strong>₹2,150</strong></td>
+            <td><span class="status pending">Pending</span></td>
+            <td>-</td>
+          </tr>
+          <tr>
+            <td><strong>ORD003</strong></td>
+            <td>Metro Chat Center</td>
+            <td>2024-01-13</td>
+            <td><strong>₹1,890</strong></td>
+            <td><span class="status cancelled">Cancelled</span></td>
+            <td>-</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+</div>
+
+</body>
+</html>
