@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Vendor Dashboard</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: #f3f4f6;
+      display: flex;
+      min-height: 100vh;
+    }
+    aside {
+      width: 260px;
+      background: white;
+      box-shadow: 2px 0 8px rgba(0, 0, 0, 0.05);
+      height: 100vh;
+      padding: 32px 24px;
+    }
+    aside h1 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #0f766e;
+      margin-bottom: 4px;
+    }
+    aside p {
+      font-size: 0.875rem;
+      color: #6b7280;
+      margin-bottom: 32px;
+    }
+    nav a {
+      display: flex;
+      align-items: center;
+      font-size: 1rem;
+      color: #374151;
+      text-decoration: none;
+      margin-bottom: 16px;
+      padding: 8px;
+      border-radius: 6px;
+      transition: background 0.2s, color 0.2s;
+    }
+    nav a:hover {
+      background-color: #e5e7eb;
+      color: #2563eb;
+    }
+    nav a.active {
+      background-color: #2563eb;
+      color: white;
+      font-weight: 600;
+    }
+    nav span {
+      margin-right: 12px;
+    }
+    main {
+      flex: 1;
+      padding: 40px;
+    }
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 24px;
+    }
+    .header h2 {
+      font-size: 1.75rem;
+      font-weight: 600;
+      color: #111827;
+    }
+    .header p {
+      color: #6b7280;
+      font-size: 0.875rem;
+    }
+    .btn {
+      font-weight: 600;
+      padding: 10px 16px;
+      border-radius: 8px;
+      cursor: pointer;
+      border: none;
+      transition: background 0.2s;
+    }
+    .btn-primary {
+      background-color: #22c55e;
+      color: white;
+    }
+    .btn-primary:hover {
+      background-color: #16a34a;
+    }
+    .search-filter {
+      display: flex;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+    .search-filter input,
+    .search-filter select {
+      font-size: 1rem;
+      padding: 8px 12px;
+      width: 100%;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+    }
+    .search-filter input:focus,
+    .search-filter select:focus {
+      outline: none;
+      border-color: #2563eb;
+      box-shadow: 0 0 0 2px rgba(37,99,235,0.3);
+    }
+    .table-container {
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+      overflow: hidden;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+    thead {
+      background-color: #f9fafb;
+    }
+    th, td {
+      padding: 16px;
+      text-align: left;
+      font-size: 0.875rem;
+      color: #374151;
+    }
+    tbody tr + tr {
+      border-top: 1px solid #e5e7eb;
+    }
+    .tag {
+      font-size: 0.75rem;
+      padding: 4px 8px;
+      border-radius: 9999px;
+      background: #f3f4f5;
+    }
+    .stock-high {
+      background: #22c55e;
+      color: white;
+    }
+    .stock-low {
+      background: #ef4444;
+      color: white;
+    }
+    .action-btns button {
+      background: transparent;
+      border: none;
+      font-size: 1rem;
+      cursor: pointer;
+      padding: 4px;
+    }
+  </style>
+</head>
+<body>
+  <aside>
+    <h1>DASHBOARD</h1>
+    <p>Vendor</p>
+    <nav>
+      <a href="#"><span>🏠</span> Dashboard</a>
+      <a href="#" class="active"><span>📦</span> My Products</a>
+      <a href="#"><span>📥</span> Inventory</a>
+      <a href="#"><span>🛒</span> Orders</a>
+      <a href="#"><span>👤</span> Profile</a>
+      <a href="#"><span>🔔</span> Notifications</a>
+      <a href="#"><span>💬</span> Chat</a>
+    </nav>
+  </aside>
+
+  <main>
+    <div class="header">
+      <div>
+        <h2>My Products</h2>
+        <p>Manage your product catalog</p>
+      </div>
+      <button class="btn btn-primary">+ Add Product</button>
+    </div>
+
+    <div class="search-filter">
+      <input type="text" placeholder="Search products..." />
+      <select><option>All Categories</option></select>
+    </div>
+
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Product</th><th>Category</th><th>Price</th><th>Stock</th><th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <div style="font-weight:600;">Premium Basmati Rice</div>
+              <div style="font-size:0.875rem; color:#6b7280;">High quality aged basmati rice</div>
+            </td>
+            <td><span class="tag">Grains</span></td>
+            <td>₹125/kg</td>
+            <td><span class="tag stock-high">50 units</span></td>
+            <td class="action-btns"><button>✏️</button><button>🗑️</button></td>
+          </tr>
+          <tr>
+            <td>
+              <div style="font-weight:600;">Organic Turmeric Powder</div>
+              <div style="font-size:0.875rem; color:#6b7280;">Pure organic turmeric powder</div>
+            </td>
+            <td><span class="tag">Spices</span></td>
+            <td>₹280/kg</td>
+            <td><span class="tag stock-low">15 units</span></td>
+            <td class="action-btns"><button>✏️</button><button>🗑️</button></td>
+          </tr>
+          <tr>
+            <td>
+              <div style="font-weight:600;">Cold Pressed Mustard Oil</div>
+              <div style="font-size:0.875rem; color:#6b7280;">Traditional cold pressed oil</div>
+            </td>
+            <td><span class="tag">Oil</span></td>
+            <td>₹180/L</td>
+            <td><span class="tag stock-low">5 units</span></td>
+            <td class="action-btns"><button>✏️</button><button>🗑️</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </main>
+
+</body>
+</html>
