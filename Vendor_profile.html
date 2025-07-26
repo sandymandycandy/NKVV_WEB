@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Buyer Profile - Dashboard</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" />
+</head>
+<body class="bg-gray-100 font-[Inter]">
+
+  <div class="flex min-h-screen">
+
+    <!-- Sidebar (Unified Style) -->
+    <aside class="w-64 bg-white border-r p-6">
+      <h2 class="text-2xl font-bold text-teal-600">Dashboard</h2>
+      <p class="text-sm text-gray-500 mb-8">Vendor</p>
+      <nav class="space-y-4">
+        <a href="#" class="flex items-center gap-2 text-gray-700 hover:text-blue-600">🏠 Home</a>
+        <a href="#" class="flex items-center gap-2 text-gray-700 hover:text-blue-600">📦 Products</a>
+        <a href="#" class="flex items-center gap-2 text-gray-700 hover:text-blue-600">🛒 My Cart</a>
+        <a href="#" class="flex items-center gap-2 text-white bg-blue-600 px-3 py-2 rounded-md font-semibold">👤 Profile</a>
+        <a href="#" class="flex items-center gap-2 text-gray-700 hover:text-blue-600">📥 History</a>
+        <a href="#" class="flex items-center gap-2 text-gray-700 hover:text-blue-600">💬 Chat</a>
+      </nav>
+    </aside>
+    
+    <!-- Profile Section -->
+    <section class="flex-1 p-10">
+      <div class="bg-white p-8 rounded-xl shadow-md max-w-4xl mx-auto">
+        <h2 class="text-2xl font-bold text-gray-800 mb-6">👤 Vendor Profile</h2>
+
+	<!-- Profile Image Upload -->
+  	<div class="flex flex-col items-center mb-6">
+    	  <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-gray-300 shadow-sm mb-2">
+      	    <img id="profileImagePreview" src="/default-avatar.png" alt="Profile Image" class="w-full h-full object-cover" />
+          </div>
+    	  <label class="cursor-pointer bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-md">
+            Upload Photo
+            <input type="file" name="profileImage" accept="image/*" class="hidden" onchange="previewProfileImage(event)" />
+          </label>
+  	 </div>
+	<!-- Vendor Profile Page -->
+	<div class="p-8 bg-gray-50 font-[Inter] min-h-screen">
+  	  <div class="max-w-4xl mx-auto bg-white shadow-lg rounded-xl p-6">
+    	    <!-- Header with Verified Badge -->
+    	    <div class="flex items-center justify-between mb-6">
+      	      <h2 class="text-2xl font-bold text-gray-800 flex items-center gap-2">
+       		 Vendor Profile
+        	 <!-- Verified Badge (conditionally shown) -->
+        	 <span class="text-green-500 bg-green-100 px-2 py-1 rounded-full text-sm font-medium">✅ Verified</span>
+      	      </h2>
+    	  </div>
+
+    
+        <form id="buyerProfileForm" enctype="multipart/form-data" class="space-y-6">
+          <div class="grid grid-cols-2 gap-6">
+            <div>
+              <label class="block mb-1 text-sm font-medium text-gray-700">Full Name</label>
+              <input type="text" name="name" required class="w-full border px-4 py-2 rounded-md" />
+            </div>
+        
+            <div>
+              <label class="block mb-1 text-sm font-medium text-gray-700">Phone Number</label>
+              <input type="tel" name="phone" required class="w-full border px-4 py-2 rounded-md" />
+            </div>
+
+            <div>
+              <label class="block mb-1 text-sm font-medium text-gray-700">Date of Birth</label>
+              <input type="date" name="dob" required class="w-full border px-4 py-2 rounded-md" />
+            </div>
+
+            <div>
+              <label class="block mb-1 text-sm font-medium text-gray-700">Email ID</label>
+              <input type="email" name="email" required class="w-full border px-4 py-2 rounded-md" disabled />
+            </div>
+
+            <div class="col-span-2">
+              <label class="block mb-1 text-sm font-medium text-gray-700">Address</label>
+              <textarea name="address" rows="3" class="w-full border px-4 py-2 rounded-md" required></textarea>
+            </div>
+
+            <div>
+              <label class="block mb-1 text-sm font-medium text-gray-700">PAN Card Number</label>
+              <input type="text" name="pan" class="w-full border px-4 py-2 rounded-md" />
+            </div>
+
+            <div>
+              <label class="block mb-1 text-sm font-medium text-gray-700">GST Number</label>
+              <input type="text" name="gst" class="w-full border px-4 py-2 rounded-md" />
+            </div>
+
+            <div>
+              <label class="block mb-1 text-sm font-medium text-gray-700">Upload FSSAI Certificate</label>
+              <input type="file" name="fssai" accept=".pdf,.jpg,.png" class="w-full" />
+            </div>
+
+            <div>
+              <label class="block mb-1 text-sm font-medium text-gray-700">Upload Trade License</label>
+              <input type="file" name="license" accept=".pdf,.jpg,.png" class="w-full" />
+            </div>
+
+            <div class="col-span-2">
+              <label class="block mb-1 text-sm font-medium text-gray-700">Aadhar Number</label>
+              <input type="text" name="aadhar" required class="w-full border px-4 py-2 rounded-md" />
+            </div>
+          </div>
+
+          <div class="mt-6">
+            <button type="submit" class="bg-blue-600 text-white px-6 py-2 rounded-md hover:bg-blue-700 font-medium">
+              Save Profile
+            </button>
+          </div>
+        </form>
+      </div>
+    </section>
+  </div>
+
+  <!-- Save Profile Script -->
+  <script>
+    document.getElementById("buyerProfileForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+      const formData = new FormData(this);
+      const data = Object.fromEntries(formData.entries());
+
+      try {
+        const res = await fetch("/api/buyer/profile", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        });
+
+        if (res.ok) {
+          alert("✅ Profile updated successfully!");
+        } else {
+          alert("❌ Failed to update profile.");
+        }
+      } catch (err) {
+        console.error(err);
+        alert("⚠ Something went wrong!");
+      }
+    });
+  </script>
+</body>
+</html>
